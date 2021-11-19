@@ -177,8 +177,6 @@ int create_spx_pkg(char *in_buf, char *pkg_buf, int list_port, int dest_port)
     /* Copies message to sphinx pakage body */
     strcpy(&pkg_buf[SPX_HEADER_SIZE], &in_buf[SPX_ADRESS_SIZE + SPX_INPUT_PADDING]);
 
-    printf("pkg = %s", pkg_buf);
-
     /* Returns address of first hop */
     return mixnodes[SPX_NUM_HOPS - 1];
 }

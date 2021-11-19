@@ -37,7 +37,7 @@ int send_pkg_to(char *pkg_buf, int dest_port) {
     }
 
     /* Gives information to who a package was sent to */
-    if (printf("A package was sent to: %d\n", dest_port) < 0) {
+    if (printf("Dispached pkg to: %d\n", dest_port) < 0) {
         perror("spx: Error printing message forwarded notification\nprintf");
     }
 
