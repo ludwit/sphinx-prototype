@@ -1,5 +1,7 @@
 ## SPHINX PROTOTYPE
 
+Tested on Ubuntu 20.04.3 and macOS 11.5.2 
+
 ### Usage 
 
 1. Compile code with make.<br />
