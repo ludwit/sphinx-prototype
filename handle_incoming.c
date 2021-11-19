@@ -121,8 +121,6 @@ int forward_pkg(char *recv_buf, char *forward_buf)
     int i;
     int dest_port;
 
-    printf("message forwarded\n");
-
     /* Iterates through sphinx package header */
     for (i = 0; i < SPX_NUM_HOPS; i++) {
 
