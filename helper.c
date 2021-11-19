@@ -30,7 +30,22 @@ int send_pkg_to(char *pkg_buf, int dest_port) {
         return -1;
     }
 
-    printf("sent pkg to %d\n", dest_port);
+    /* Locks I/O mutex */
+    if (pthread_mutex_lock(&io_mutex) < 0) {
+        perror("spx: Error locking io_mutex\npthread_mutex_lock");
+        exit(EXIT_FAILURE);
+    }
+
+    /* Gives information to who a package was sent to */
+    if (printf("A package was sent to: %d\n", dest_port) < 0) {
+        perror("spx: Error printing message forwarded notification\nprintf");
+    }
+
+    /* Unlocks I/O mutex */
+    if (pthread_mutex_unlock(&io_mutex) < 0) {
+        perror("spx: Error unlocking io_mutex\npthread_mutex_unlock");
+        exit(EXIT_FAILURE);
+    }
 
     /* Closes connection */
     close(sockfd);
