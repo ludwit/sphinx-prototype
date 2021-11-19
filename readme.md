@@ -149,4 +149,3 @@ Using it to fill in the *Route* and send the package to the first hop address.
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 9. From here it repeats...
-
