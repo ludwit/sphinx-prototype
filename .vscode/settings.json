@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "unp.h": "c",
-        "com.h": "c",
-        "uio.h": "c",
-        "header.h": "c",
-        "signal.h": "c"
-    }
-}

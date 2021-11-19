@@ -1,6 +1,6 @@
 ## SPHINX PROTOTYPE
 
-### Usage
+### Usage 
 
 1. Compile code with make.<br />
 

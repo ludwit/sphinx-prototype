@@ -78,7 +78,7 @@ void * handle_incoming(void *ptr)
                 close(connfd);
                 continue;
             }
-
+ 
         } else {
             /* No, then save SURB and print message */
 

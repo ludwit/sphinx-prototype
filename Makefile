@@ -1,4 +1,4 @@
-CC = gcc
+CC = gcc 
 CFLAGS = -g -Wall -Wextra -pedantic -O3
 LDFLAGS =  -pthread
 

@@ -1,4 +1,4 @@
-#include "header.h" 
+#include "header.h"  
 
 /* Defines contacts for storing SURBs as global variable */
 contact contacts[SPX_CONTACTS_SIZE]; 
