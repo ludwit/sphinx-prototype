@@ -43,7 +43,7 @@ Tested on Ubuntu 20.04.3 and macOS 11.5.2
 All data is encoded as ASCII.
 
 - **Route** consists of three bytes containing in the following order the addresses of the second and third hop as well as the destination address of the package.<br />
-- **SURB**  consists of four bytes containing in the following order the addresses of three hops and the sender of the package. This part is used by the recipient to create the *Route* for a reply to the originator.<br />
+- **SURB**  (Single Use Reply Block) consists of four bytes containing in the following order the addresses of three hops and the sender of the package. This part is used by the recipient to create the *Route* for a reply to the originator.<br />
 - **Message** consists of 142 bytes that encode the message including the line feed and null character. Resulting in an effective message size of 140 characters.<br />
 
 #### Example
@@ -66,7 +66,7 @@ The user input defines the destination address as "1" and message as "hello" (he
 |* * 1|* * * 0|h e l l o|
 +-+-+-+-+-+-+-+-+-+-+-+-+
 ```
-The instance pseudo randomly selects three different addresses from the network excluding the destination and origin address. The addresses are used to complete *SURB* and represent the three hops the reply will take before arriving back to the origin.
+The instance pseudo randomly selects three different addresses from the network excluding the destination and origin address. The addresses are used to complete the *SURB* and represent the three hops the reply will take before arriving back to the origin.
 ```
 0                   1
 0 1 2 3 4 5 6 7 8 9 0 1 
@@ -122,7 +122,7 @@ Reply with alias: a
 ```
 7. User at destination replies to message.
 
-`a how's things?`
+`a How's things?`
 
 8. Destination builds a sphinx package and sends it to the first hop
 
@@ -131,7 +131,7 @@ The user input defines the message as "how's things?" and uses an alias as desti
 0                   1                   2
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|* * *|3 4 2 1|h o w ' s   t h i n g s ?|
+|* * *|0 4 2 1|H o w ' s   t h i n g s ?|
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 With the alias the instance can access the saved *SURB*.
@@ -147,7 +147,7 @@ Using it to fill in the *Route* and send the package to the first hop address.
 0                   1                   2
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+   send()
-|2 4 0|0 4 2 1|h o w ' s   t h i n g s ?|     ->    ./spx 3
+|2 4 0|0 4 2 1|H o w ' s   t h i n g s ?|     ->    ./spx 3
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 9. From here it repeats...
