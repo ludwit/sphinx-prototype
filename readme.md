@@ -2,7 +2,7 @@
 
 Tested on Ubuntu 20.04.3 and macOS 11.5.2
 
-A prototype illustrating the functionality of the cryptographic message format *Sphinx* without any cryptography.
+A prototype illustrating the functionality of the cryptographic message format *Sphinx* without any cryptography.<br />
 Link to Sphinx spec: https://dl.acm.org/doi/abs/10.1109/SP.2009.15
 
 ### Usage 
